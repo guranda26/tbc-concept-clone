@@ -14,22 +14,6 @@
   --hover-background: #f0f0f0;
 }
 
-/* @font-face {
-  font-family: "Sharp Grotesk";
-  src: url("./assets/fonts/Sharp_Grotesk/SharpGrotesk-SemiBold20.otf")
-    format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Sharp Grotesk";
-  src: url("./assets/fonts/Sharp_Grotesk/SharpGrotesk-Black05.otf")
-    format("truetype");
-  font-weight: bold;
-  font-style: normal;
-} */
-
 body {
   font-family: sans-serif;
   background-color: var(--background-color_primary);
@@ -71,12 +55,6 @@ li {
   text-decoration: none;
 }
 
-/* .line {
-  width: 2px;
-  height: 30px;
-  background-color: var(--text-color);
-} */
-
 .logo-container {
   display: flex;
   justify-items: center;
@@ -84,8 +62,16 @@ li {
   gap: 7px;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+}
+.header-container.active {
+  background-color: var(--background-color_secondary);
+}
+
 .header-container {
-  width: 100vw;
+  width: 100%;
   background-color: var(--background-color_primary);
 }
 
@@ -94,8 +80,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  width: 1200px;
+  padding: 20px 45px;
 }
 
 .container {
@@ -104,7 +89,7 @@ li {
 }
 
 .container-fluid {
-  width: 1200px;
+  padding: 0 45px;
   margin: 0 auto;
 }
 
@@ -179,6 +164,264 @@ li {
   border: 1px solid #e0dfdf;
   border-radius: 5px;
   padding: 6px 0px;
+  /* display: none; */
+  position: absolute;
+  top: 40px;
+  right: 0;
+}
+
+.eng-link {
+  display: block;
+  height: max-content;
+  padding: 6px 20px;
+  text-align: center;
+}
+
+.switch-eng:hover .eng-link {
+  background-color: var(--hover-background);
+}
+
+.toggle-lang:hover .switch-eng {
+  display: block;
+}
+
+.switch-eng a {
+  color: var(--icon-color);
+  font-weight: 400;
+}
+
+.cropped-logo {
+  display: none;
+}
+
+/* .menu-btn .bar {
+  display: block;
+  width: 11px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--icon-color);
+  margin-bottom: 5px;
+  background-color: var(--text-color);
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+} */
+
+/* .menu-btn-active {
+  transform: translateZ(0) scaleX(1) rotateX(0deg) rotateY(0deg) rotate(-45deg)
+    skew(0deg, 0deg);
+}
+
+.menu-btn .middle-bar {
+  width: 20px;
+}
+
+.menu-btn .bottom-bar {
+  width: 15px;
+}
+
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--background-color_primary);
+  transition: background-color 0.3s ease;
+}
+
+.close-btn svg {
+  width: 25px;
+  height: 25px;
+  fill: var(--icon-color);
+  transition: fill 0.3s ease;
+}
+
+.close-btn {
+  display: none;
+}
+
+.menu-open .close-btn {
+  display: flex;
+}
+
+.menu-open .menu-btn {
+  display: none;
+} */
+
+/* Menu Button Styles */
+/* Ensure menu button and close button are visible and positioned correctly */
+
+/* align-items: center; */
+
+/* Ensure menu button and close button are visible and positioned correctly */
+/* Ensure menu button and close button are visible and positioned correctly */
+/* Ensure menu button and close button are visible and positioned correctly */
+.menu-btn,
+.close-btn {
+  position: relative; /* Ensure positioning context */
+  z-index: 1000; /* High z-index to be on top */
+}
+
+/* Menu Button Styles */
+.menu-btn {
+  display: none;
+
+  grid-row-gap: 5px;
+  cursor: pointer;
+  background-color: var(--background-color_primary);
+  transition: transform 0.6s ease, background-color 0.6s ease;
+}
+
+.menu-btn .bar {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--text-color);
+  transition: background-color 0.6s ease, transform 0.6s ease;
+}
+
+.menu-btn .top-bar {
+  width: 11px;
+}
+
+.menu-btn .middle-bar {
+  width: 20px;
+}
+
+.menu-btn .bottom-bar {
+  width: 15px;
+}
+
+.close-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--background-color_primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 1px;
+  transition: transform 0.3s ease;
+}
+
+.close-btn::before {
+  transform: rotate(45deg);
+}
+
+.close-btn::after {
+  transform: rotate(-45deg);
+}
+
+/* Menu Button Open State */
+.menu-btn.open .top-bar {
+  transform: translateY(5px) rotate(45deg);
+  width: 20px;
+}
+
+.menu-btn.open .middle-bar {
+  opacity: 0;
+}
+
+.menu-btn.open .bottom-bar {
+  transform: translateY(-9px) rotate(-45deg);
+  width: 20px;
+}
+
+/* Hidden class for toggling visibility */
+.hidden {
+  display: none;
+}
+
+.navbar li a {
+  display: inline-block;
+  letter-spacing: 0.8px;
+}
+
+.follow-channel {
+  color: var(--link-color);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.follow-channel:hover,
+.right-arrow:hover {
+  transition: color 0.25s ease-in-out;
+}
+
+.follow-list a:hover {
+  color: var(--icon-hover);
+}
+
+.follow-list .icon path {
+  transition: fill 0.3s ease;
+}
+
+.follow-list:hover .icon path,
+.search-item:hover .icon path {
+  fill: var(--icon-hover);
+}
+
+.right-arrow {
+  width: 16px;
+}
+
+.icon {
+  width: 20px;
+}
+
+.toggle-lang {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
+  padding: 8px 6px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.toggle-lang:hover {
+  cursor: pointer;
+  background-color: var(--hover-background);
+}
+
+.lang-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.relative {
+  position: relative;
+}
+
+.switch-eng {
+  background-color: #fff;
+  border: 1px solid #e0dfdf;
+  border-radius: 5px;
+  padding: 6px 0;
   display: none;
   position: absolute;
   top: 40px;
@@ -203,4 +446,156 @@ li {
 .switch-eng a {
   color: var(--icon-color);
   font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+  .header-list {
+    gap: 10px;
+    align-items: center;
+    position: relative;
+    top: -5px;
+  }
+  .header,
+  .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  /* .container {
+    padding: 0 50px;
+  } */
+}
+
+@media (max-width: 992px) {
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-list {
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .header {
+    position: relative;
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    margin-top: 30px;
+    top: auto;
+    left: 0;
+    background-color: var(--background-color_primary);
+    border: 1px solid #e0dfdf;
+    border-radius: 5px;
+    width: 100vw;
+    padding: 25px;
+    z-index: 1000;
+    border: none;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .navbar.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .toggle-lang .lang-link {
+    display: none;
+  }
+  .header {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header .logo-container {
+    margin-right: auto;
+  }
+
+  .right-arrow {
+    width: 16px;
+    height: 16px;
+  }
+
+  .header-list .follow-list .follow-channel {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cropped-logo {
+    display: block;
+  }
+
+  .layer_1 {
+    display: none;
+  }
+
+  .header-list {
+    gap: 10px;
+  }
+
+  .logo {
+    width: 30px;
+  }
+
+  .toggle-lang {
+    padding: 6px 4px;
+  }
+
+  .switch-eng {
+    top: 50px;
+    right: 0;
+  }
+
+  .eng-link {
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header,
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .header {
+    justify-content: space-between;
+  }
+
+  .header-list {
+    gap: 8px;
+  }
+
+  .logo {
+    width: 24px;
+  }
+
+  .toggle-lang {
+    font-size: 12px;
+  }
+
+  .switch-eng {
+    top: 40px;
+  }
+
+  .eng-link {
+    padding: 2px 8px;
+  }
+
+  .header-list .follow-list {
+    flex-wrap: wrap;
+    /* position: relative; */
+    /* margin-left: auto; */
+    justify-self: end;
+  }
+
+  .header-list {
+    /* display: flex; */
+    justify-content: flex-end;
+  }
 }
