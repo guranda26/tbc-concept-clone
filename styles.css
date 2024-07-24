@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color_primary: #fff;
+  --background-color_secondary: #f9fafa;
+  --text-color: #555f62;
+  --icon-color: #000;
+  --link-color: #182cc0;
+  --icon-hover: #3295ce;
+  --hover-background: #f0f0f0;
+}
+
+/* @font-face {
+  font-family: "Sharp Grotesk";
+  src: url("./assets/fonts/Sharp_Grotesk/SharpGrotesk-SemiBold20.otf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sharp Grotesk";
+  src: url("./assets/fonts/Sharp_Grotesk/SharpGrotesk-Black05.otf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+} */
+
+body {
+  font-family: sans-serif;
+  background-color: var(--background-color_primary);
+}
+
+.icon {
+  transition: fill 0.3s ease;
+}
+
+.logo {
+  display: inline-block;
+  width: 36px;
+}
+
+.logo,
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  list-style: none;
+}
+.logo-link {
+  display: flex;
+  gap: 5px;
+}
+
+.header-list {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-list .toggle-lang {
+  font-weight: 600;
+}
+
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+/* .line {
+  width: 2px;
+  height: 30px;
+  background-color: var(--text-color);
+} */
+
+.logo-container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.header-container {
+  width: 100vw;
+  background-color: var(--background-color_primary);
+}
+
+.header {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  width: 1200px;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--background-color_secondary);
+}
+
+.container-fluid {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar li a {
+  display: inline-block;
+  letter-spacing: 0.8px;
+}
+
+.follow-channel {
+  color: var(--link-color);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.follow-channel:hover,
+.right-arrow:hover {
+  transition: color 0.25s ease-in-out;
+}
+.follow-list a:hover {
+  color: var(--icon-hover);
+}
+
+.follow-list .icon path {
+  transition: fill 0.3s ease;
+}
+
+.follow-list:hover .icon path,
+.search-item:hover .icon path {
+  fill: var(--icon-hover);
+}
+
+.right-arrow {
+  width: 16px;
+}
+
+.icon {
+  width: 20px;
+}
+
+.toggle-lang {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
+  padding: 8px 6px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease, background 0.3s ease;
+  border-radius: 5px;
+}
+
+.toggle-lang:hover {
+  cursor: pointer;
+  background-color: var(--hover-background);
+}
+
+.lang-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.relative {
+  position: relative;
+}
+
+.switch-eng {
+  background-color: #fff;
+  border: 1px solid #e0dfdf;
+  border-radius: 5px;
+  padding: 6px 0px;
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+}
+
+.eng-link {
+  display: block;
+  height: max-content;
+  padding: 6px 20px;
+  text-align: center;
+}
+
+.switch-eng:hover .eng-link {
+  background-color: var(--hover-background);
+}
+
+.toggle-lang:hover .switch-eng {
+  display: block;
+}
+
+.switch-eng a {
+  color: var(--icon-color);
+  font-weight: 400;
+}
