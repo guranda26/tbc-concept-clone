@@ -614,6 +614,10 @@ h3 {
   border-radius: 5px;
 }
 
+.digital-bank {
+  position: relative;
+}
+
 .intro p {
   margin-top: 16px;
   margin-bottom: 24px;
@@ -658,8 +662,20 @@ h3 {
   position: relative;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  /* overflow: clip; */
   transition: box-shadow 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.award-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 400px;
+}
+
+.achievements-section .img-wrapper img {
+  height: 52px;
+  width: auto;
 }
 
 .img-wrapper:hover {
@@ -675,9 +691,6 @@ h3 {
 }
 
 .slider-wrapper .image-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 30px;
   cursor: grab;
   overflow-x: auto;
   overflow: auto;
@@ -685,6 +698,35 @@ h3 {
   width: auto;
   height: 100%;
   padding-bottom: 38px;
+}
+
+.offer-section .image-list,
+.achievements-section .image-list {
+  display: grid;
+  column-gap: 30px;
+}
+
+.offer-section .image-list {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.achievements-section .image-list {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.products .slider-wrapper .image-list {
+  display: flex;
+  gap: 30px;
+}
+
+.products .img-wrapper {
+  min-width: 350px;
+}
+
+.products .img-wrapper img {
+  max-height: 197px;
+  height: min-content;
+  object-fit: fill;
 }
 
 .slider-wrapper .image-list::-webkit-scrollbar {
@@ -733,6 +775,17 @@ h3 {
 .article-content {
   padding: 28px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.award-content {
+  width: 80%;
+  padding: 0;
+}
+
+.award-content h3 {
+  margin-bottom: 24px;
 }
 
 .article-content p {
@@ -740,6 +793,42 @@ h3 {
   font-size: 12px;
   color: var(--text-color);
   font-weight: 600;
+}
+
+.article-content .award-paragraph {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.award-card {
+  padding: 28px;
+}
+
+.products .article-content,
+.achievements-section .article-content {
+  line-height: 1.7;
+}
+
+.products .article-content h3 {
+  margin-bottom: 16px;
+}
+
+.products .article-content p {
+  height: 95px;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+.products .image-item {
+  width: 100%;
+  height: auto;
+}
+
+.products .article-content p {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .article-title {
@@ -875,6 +964,7 @@ h3 {
   max-height: 374px;
   overflow: hidden;
   z-index: 1;
+  background-color: var(--background-color_primary);
 }
 
 .container {
@@ -888,9 +978,9 @@ h3 {
 .container-fluid .digital-bank::before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
   width: 100vw;
   height: 374px;
   background-color: var(--background-color_primary);
@@ -1109,6 +1199,15 @@ h3 {
   .digital-bank_content p {
     width: 100%;
   }
+
+  .container-fluid .achievements-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .achievements-section .image-list {
+    gap: 16px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1237,6 +1336,15 @@ h3 {
   .container-fluid .digital-bank {
     max-height: initial;
   }
+
+  .award-card {
+    max-width: 330px;
+    min-width: 210px;
+  }
+
+  .award-content {
+    width: 90%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1314,5 +1422,10 @@ h3 {
 
   .box .number {
     font-size: 34px;
+  }
+
+  .award-card {
+    width: auto;
+    /* width: auto; */
   }
 }
