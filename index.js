@@ -169,6 +169,15 @@ document.addEventListener("DOMContentLoaded", () => {
             : defaultNextColor;
           nextSlide.disabled = !canScrollRight;
         }
+
+        if (scrollbarSlider) {
+          scrollbarSlider.style.display = maxScrollLeft > 0 ? "block" : "none";
+        }
+
+        if (maxScrollLeft <= 0) {
+          nextSlide.style.display = "none";
+          prevSlide.style.display = "none";
+        }
       };
 
       const updateThumbPosition = () => {
