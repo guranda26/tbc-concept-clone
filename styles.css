@@ -182,7 +182,8 @@ a {
   gap: 32px;
 }
 
-.header-list .toggle-lang {
+.header-list .toggle-lang,
+.show-lang {
   font-weight: 600;
 }
 
@@ -298,7 +299,8 @@ a {
   fill: var(--hover-element);
 }
 
-.toggle-lang {
+.toggle-lang,
+.show-lang {
   display: flex;
   gap: 4px;
   align-items: center;
@@ -309,7 +311,8 @@ a {
   border-radius: 5px;
 }
 
-.toggle-lang:hover {
+.toggle-lang:hover,
+.show-lang:hover {
   cursor: pointer;
   background-color: var(--hover-background);
 }
@@ -340,7 +343,8 @@ a {
   background-color: var(--hover-background);
 }
 
-.toggle-lang:hover .switch-eng {
+.toggle-lang:hover .switch-eng,
+.show-lang:hover .switch-eng {
   display: block;
 }
 
@@ -355,7 +359,8 @@ a {
   text-align: center;
 }
 
-.toggle-lang:hover .switch-eng {
+.toggle-lang:hover .switch-eng,
+.show-lang:hover .switch-eng {
   display: block;
 }
 
@@ -457,7 +462,8 @@ a {
   width: 16px;
 }
 
-.toggle-lang {
+.toggle-lang,
+.show-lang {
   display: flex;
   gap: 4px;
   align-items: center;
@@ -468,7 +474,8 @@ a {
   border-radius: 5px;
 }
 
-.toggle-lang:hover {
+.toggle-lang:hover,
+.show-lang:hover {
   cursor: pointer;
   background-color: var(--hover-background);
 }
@@ -1212,17 +1219,16 @@ ul.social-media-list {
   bottom: 0;
 }
 
-/* Modal content styles */
 .modal-content {
   position: absolute;
   bottom: -100%;
   width: 100%;
-  height: 80%; /* Define a fixed height to allow scrolling */
+  height: 80%;
   background-color: white;
   border-radius: 10px 10px 0 0;
   transition: bottom 0.4s ease-in-out;
   font-size: 16px;
-  overflow: hidden; /* To contain overflow within the modal */
+  overflow: hidden;
 }
 
 .modal-content h4 {
@@ -1236,10 +1242,10 @@ ul.social-media-list {
 }
 
 .modal-text {
-  max-height: calc(80% - 64px); /* Adjust to fit within modal-content height */
+  max-height: calc(80% - 64px);
   padding-right: 80px;
   margin: auto;
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto;
   overflow-x: hidden;
   width: 770px;
   padding: 48px 0;
@@ -1267,8 +1273,6 @@ ul.social-media-list {
   color: var(--text-color);
   letter-spacing: 0.5px;
 }
-
-/* Close button styles */
 
 .close-modal_btn {
   width: 48px;
@@ -1306,6 +1310,16 @@ ul.social-media-list {
 
 .dropdown {
   display: none;
+}
+
+.footer-logo_lang {
+  display: flex;
+  justify-content: space-between;
+  padding: 45px 60px;
+}
+
+.footer-section {
+  padding-top: 0;
 }
 
 @media (max-width: 1150px) {
@@ -1505,6 +1519,11 @@ ul.social-media-list {
   .dropdown {
     display: block;
   }
+
+  .footer-logo_lang {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1561,7 +1580,8 @@ ul.social-media-list {
     width: 30px;
   }
 
-  .toggle-lang {
+  .toggle-lang,
+  .show-lang {
     padding: 6px 4px;
   }
 
@@ -1691,7 +1711,8 @@ ul.social-media-list {
     width: 24px;
   }
 
-  .toggle-lang {
+  .toggle-lang,
+  .show-lang {
     font-size: 12px;
   }
 
@@ -1744,5 +1765,10 @@ ul.social-media-list {
   .services,
   .contact {
     padding: 32px 15px;
+  }
+
+  .footer-logo_lang {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

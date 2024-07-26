@@ -231,6 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   });
 
+  const logoLang = document.getElementById("logo-lang");
+  const toggleLang = document.querySelector(".toggle-lang");
+  const switchEng = document.querySelector(".switch-eng");
+
+  const logoContainer = document.querySelector(".logo-container");
+
+  const clonedLogoContainer = logoContainer.cloneNode(true);
+  const clonedToggleLang = toggleLang.cloneNode(true);
+  const clonedSwitchEng = switchEng.cloneNode(true);
+
+  clonedToggleLang.style.position = "relative";
+  console.log(clonedSwitchEng);
+
+  clonedToggleLang.classList.remove("toggle-lang");
+  clonedToggleLang.classList.add("show-lang");
+
+  logoLang.append(clonedLogoContainer, clonedToggleLang, clonedSwitchEng);
+
   window.onclick = function (event) {
     if (event.target === modalPrivacy) {
       closeModal(modalPrivacy);
