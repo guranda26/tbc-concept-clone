@@ -303,6 +303,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Call the function to update the text
   handleDots();
+
+  const modalPrivacy = document.getElementById("modalPrivacy");
+  const modalRules = document.getElementById("modalRules");
+  const btnPrivacy = document.getElementById("privacy");
+  const btnRules = document.getElementById("rules");
+  const closeButtons = document.querySelectorAll(".close-modal_btn");
+
+  function showModal(modal) {
+    modal.style.display = "block";
+    setTimeout(() => {
+      modal.classList.add("show");
+    }, 10);
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove("show");
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 400);
+  }
+
+  btnPrivacy.onclick = function () {
+    showModal(modalPrivacy);
+  };
+
+  btnRules.onclick = function () {
+    showModal(modalRules);
+  };
+
+  closeButtons.forEach((closeButton) => {
+    closeButton.onclick = function () {
+      const modal = this.closest(".modal");
+      closeModal(modal);
+    };
+  });
+  window.onclick = function (event) {
+    if (event.target === modalPrivacy) {
+      closeModal(modalPrivacy);
+    } else if (event.target === modalRules) {
+      closeModal(modalRules);
+    }
+  };
+
+  const dropdowns = document.querySelectorAll(".dropdown");
+
+  dropdowns.forEach((dropdown) => {
+    const downIcon = dropdown.querySelector(".down");
+    const upIcon = dropdown.querySelector(".up");
+    const servicesList = dropdown.parentElement.nextElementSibling;
+
+    upIcon.style.display = "none";
+
+    dropdown.addEventListener("click", () => {
+      if (downIcon.style.display === "none") {
+        downIcon.style.display = "block";
+        upIcon.style.display = "none";
+        servicesList.classList.remove("active");
+      } else {
+        downIcon.style.display = "none";
+        upIcon.style.display = "block";
+        servicesList.classList.add("active");
+      }
+    });
+  });
 });
