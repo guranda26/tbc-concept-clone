@@ -1,7 +1,10 @@
+import { addListItem } from "./modules/addListItem.js";
+import { handleDots } from "./modules/handleDots.js";
+import { initializeDropdownToggle } from "./modules/initDropdown.js";
+import { openModal, closeModal } from "./modules/handleModalShow.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".menu-btn");
-  console.log(menuBtn);
-  const menuIcon = menuBtn.querySelector(".menu-icon");
   const headerContainer = document.querySelector(".header-container");
   const sections = document.querySelectorAll("section");
   const footerSection = document.querySelector(".footer-section");
@@ -11,15 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const normalImageColor = "##555f62";
   const hoverImageColor = "#555f62";
   const defaultNextColor = "#00f";
-
-  const addListItem = (hrefLink, text) => {
-    const el = document.createElement("li");
-    const link = document.createElement("a");
-    link.setAttribute("href", hrefLink);
-    link.textContent = text;
-    el.appendChild(link);
-    return el;
-  };
 
   menuBtn.addEventListener("click", () => {
     const isOpen = menuBtn.classList.toggle("open");
@@ -97,51 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 0);
       }
     });
-  }
-
-  function initializeDropdownToggle(parentElement) {
-    const services = parentElement.querySelectorAll(".services");
-
-    services.forEach((service) => {
-      const dropdownMenu = service.querySelector(".dropwodn-menu");
-      const downIcon = service.querySelector(".down");
-      const upIcon = service.querySelector(".up");
-      const servicesList = service.querySelector(".services-list");
-
-      if (!dropdownMenu || !downIcon || !upIcon || !servicesList) {
-        console.warn("Required elements not found in .services");
-        return;
-      }
-
-      upIcon.style.display = "none";
-
-      const dropdownIcons = service.querySelectorAll(".dropdown-icon");
-      dropdownIcons.forEach((icon) => {
-        icon.addEventListener("click", (event) => {
-          event.stopPropagation();
-          toggleIcons(downIcon, upIcon, servicesList);
-        });
-      });
-
-      dropdownMenu.addEventListener("click", (event) => {
-        if (!event.target.classList.contains("dropdown-icon")) {
-          servicesList.classList.toggle("active");
-          toggleIcons(downIcon, upIcon, servicesList);
-        }
-      });
-    });
-  }
-
-  function toggleIcons(downIcon, upIcon, servicesList) {
-    if (downIcon.style.display === "none") {
-      downIcon.style.display = "block";
-      upIcon.style.display = "none";
-      servicesList.classList.remove("active");
-    } else {
-      downIcon.style.display = "none";
-      upIcon.style.display = "block";
-      servicesList.classList.add("active");
-    }
   }
 
   initializeDropdownToggle(footerSection);
@@ -257,4 +206,36 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   initSliders();
+  handleDots();
+
+  const modalPrivacy = document.getElementById("modalPrivacy");
+  const modalRules = document.getElementById("modalRules");
+
+  const btnPrivacy = document.getElementById("privacy");
+  const btnRules = document.getElementById("rules");
+
+  const closeButtons = document.querySelectorAll(".close");
+
+  btnPrivacy.onclick = function () {
+    openModal(modalPrivacy);
+  };
+
+  btnRules.onclick = function () {
+    openModal(modalRules);
+  };
+
+  closeButtons.forEach((closeButton) => {
+    closeButton.onclick = function () {
+      const modal = this.closest(".modal");
+      closeModal(modal);
+    };
+  });
+
+  window.onclick = function (event) {
+    if (event.target === modalPrivacy) {
+      closeModal(modalPrivacy);
+    } else if (event.target === modalRules) {
+      closeModal(modalRules);
+    }
+  };
 });
